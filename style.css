@@ -5,21 +5,27 @@
     border: none;
     box-sizing: border-box;
 }
-body{
-    background: black;
+body {
+    background: rgb(16, 25, 75);
+    background: linear-gradient(90deg, rgb(14, 16, 44) 23%, rgba(12,18,32,1) 54%, rgba(15,23,42,1) 100%);
     color: white;
-    
-}
-#header{
-    width: 100%;
-    height: 100vh;
-    background: rgb(10,9,27);
-    background: linear-gradient(90deg, rgba(10,9,27,1) 23%, rgba(12,18,32,1) 54%, rgba(15,23,42,1) 100%);
-    position: relative;
+    margin: 0;
+    padding: 0;
+    font-family: Arial, Helvetica, sans-serif;
 }
 @keyframes fadeIn {
     from { opacity: 0; }
     to { opacity: 1; }
+}
+@keyframes slideInFromRight {
+    0% {
+      transform: translateX(100%); /* Start from beyond the right edge */
+      opacity: 0;
+    }
+    100% {
+      transform: translateX(0); /* End at its final position */
+      opacity: 1;
+    }
 }
 #profile-containter {
     width: 40%;
@@ -28,12 +34,21 @@ body{
 } 
 #profile-pic{
     width: 450px;
+    box-shadow: 10px 5px 0px 0px #076a91;
+    transition: all 0.3s ease-in-out;
+    margin: 10px;
     position:absolute;
     right: 300px;
     top: 300px;
     opacity: 0;
-    animation: fadeIn ease-in 2s;
+    animation: slideInFromRight 1s;
     animation-fill-mode: forwards;
+}
+#profile-pic:hover {
+    transform: scale(1.5); /* Increase the scale by 10% on hover */
+    border-color:#076a91;
+    /* Optionally, adjust the box-shadow to maintain the line effect if needed */
+    box-shadow: 10px 10px 0px 0px #0055dd; /* Adjust the shadow to match the new size */
 }
 #cursor-light {
     pointer-events: none; /* Ignore the div when it comes to mouse events */
@@ -46,18 +61,78 @@ body{
     transition: opacity 0.3s, transform 0.2s; /* Smooth transitions for moving and fading */
 }
 #intro {
-    width: 20%; /* Adjust the column width */
+    width: 30%; /* Adjust the column width */
     padding: 20px; /* Padding around the entire intro section */
     text-align: left;
-    margin-left: 100px; /* Adjust this to align with the overall layout */
-    margin-bottom: 600px; /* This pushes the entire intro section down */
+    margin-left: 400px; /* Adjust this to align with the overall layout */
+    margin-top: 400px; /* This pushes the entire intro section down */
 }
 
 #intro h1 {
-    color: #b3ffff;
-    font-family: 'Times New Roman', Times, serif;
-    font-size: 56px;
-    margin-bottom: 50px; /* Space between the heading and paragraph */
+    color:#CCD6F6;
+    font-family:Arial, Helvetica, sans-serif;
+    font-size: 48px;
+    margin-bottom: 20px; /* Space between the heading and paragraph */
     margin-left: 0; /* Align the left edge of h1 with the paragraph */
     text-align: left;
+}
+.greeting {
+    font-size: 20px; /* Adjust as needed */
+    color: #55D8BD; /* Light grey text color, adjust as needed */
+    margin-bottom: 5px; /* Small space below the greeting */
+}
+.name {
+    font-size: 56px; /* Large, bold font size for the name */
+    font-weight: bold;
+    color: #575757; /* Adjust to the color you want for the name */
+    margin-bottom: 30px; /* Space below the name */
+}
+.tagline {
+    font-size: 40px; /* Adjust as needed */
+    color: #8892B0; /* Adjust to the color you want for the tagline */
+    margin-bottom: 20px; /* Space below the tagline */
+}
+.about {
+    font-size: 16px; /* Adjust as needed */
+    color: #aaaaaa; /* Grey text color, adjust as needed */
+    line-height: 1.6; /* For better readability */
+    max-width: 600px; /* Adjust width as needed to control line length */
+}
+.cta-button {
+    display: inline-block; /* Makes the link behave like a button */
+    background: #076a91; /* Button color */
+    color: #ffffff; /* Button text color */
+    padding: 10px 20px; /* Button padding */
+    margin-top: 20px; /* Space above the button */
+    text-decoration: none; /* No underline on the link */
+    font-weight: bold; /* Bold font for the button text */
+    border-radius: 5px; /* Rounded corners for the button */
+    transition: background-color 0.3s; /* Smooth transition for hover effect */
+}
+.cta-button:hover {
+    background: #0055dd; /* Slightly darker button color on hover */
+}
+#about-me {
+    max-width: 500px; /* Adjust the width as needed */
+    margin-left: 300px;
+    margin-top: 400px; /* Center the content and add space below the section */
+    padding: 50px 20px; /* Add padding for spacing inside the section */
+    color: white; /* Text color */
+    text-align: left
+
+}
+.section-title {
+    margin-bottom: 20px; /* Space below the section title */
+    font-size: 24px; /* Size of the section title */
+    color: #b3ffff; /* Color of the section title, adjust as needed */
+    border-bottom: 2px solid #b3ffff; /* Line under the section title */
+    display: inline-block; /* Required for the border-bottom to fit the content */
+    padding-bottom: 5px; /* Padding to space out the border from the text */
+}
+
+.about-description {
+    font-size: 16px; /* Size of the about description text */
+    line-height: 1.6; /* Line height for better readability */
+    text-align: left; /* Align the text to the left */
+    margin-top: 20px; /* Space above the about description */
 }
