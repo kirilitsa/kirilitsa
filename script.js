@@ -1,10 +1,12 @@
-document.addEventListener('mousemove', function(e) {
-    var light = document.getElementById('cursor-light');
-    light.style.opacity = '1'; // Make the light fully visible
-    light.style.transform = `translate(${e.pageX - light.offsetWidth / 2}px, ${e.pageY - light.offsetHeight / 2}px)`;
-});
+function switchImage(imageNumber) {
+    var image1 = document.getElementById('image1');
+    var image2 = document.getElementById('image2');
 
-document.addEventListener('mouseout', function() {
-    var light = document.getElementById('cursor-light');
-    light.style.opacity = '0'; // Hide the light when not over the document
-});
+    if (imageNumber === 1) {
+        image1.style.display = 'block';
+        image2.style.display = 'none';
+    } else {
+        image1.style.display = 'none';
+        image2.style.display = 'block';
+    }
+}

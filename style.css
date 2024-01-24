@@ -5,59 +5,164 @@
     border: none;
     box-sizing: border-box;
 }
-body{
-    background: black;
-    color: white;
-    
+::selection {
+    background: #323d52; /* Replace with your desired color */
+     /* Replace with your desired text color */
 }
-#header{
-    width: 100%;
-    height: 100vh;
-    background: rgb(10,9,27);
-    background: linear-gradient(90deg, rgba(10,9,27,1) 23%, rgba(12,18,32,1) 54%, rgba(15,23,42,1) 100%);
-    position: relative;
+body {
+    background: rgb(16, 25, 75);
+    background: linear-gradient(90deg, rgb(14, 16, 44) 23%, rgba(12,18,32,1) 54%, rgba(15,23,42,1) 100%);
+    color: white;
+    margin: 0;
+    padding: 0;
+    font-family: Arial, Helvetica, sans-serif;
+}
+@font-face {
+    font-family: 'HalifaxBold';
+    src: url(Halifax\ W03\ Bold.ttf);
+    font-weight: bold;
+    font-style: normal;
 }
 @keyframes fadeIn {
     from { opacity: 0; }
     to { opacity: 1; }
 }
-#profile-containter {
-    width: 40%;
-    padding: 100px;
-    text-align:left;
-} 
-#profile-pic{
-    width: 450px;
-    position:absolute;
-    right: 300px;
-    top: 300px;
-    opacity: 0;
-    animation: fadeIn ease-in 2s;
-    animation-fill-mode: forwards;
-}
-#cursor-light {
-    pointer-events: none; /* Ignore the div when it comes to mouse events */
-    position: absolute;
-    width: 175px; /* Width of the light */
-    height: 200px; /* Height of the light */
-    background-color: rgba(182, 29, 29, 0.7); /* Light color and opacity */
-    border-radius: 50%; /* Make it round */
-    opacity: 8; /* Start fully transparent */
-    transition: opacity 0.3s, transform 0.2s; /* Smooth transitions for moving and fading */
+@keyframes slideInFromRight {
+    0% {
+      transform: translateX(100%); /* Start from beyond the right edge */
+      opacity: 0;
+    }
+    100% {
+      transform: translateX(0); /* End at its final position */
+      opacity: 1;
+    }
 }
 #intro {
-    width: 20%; /* Adjust the column width */
+    width: 60%; /* Adjust the column width */
     padding: 20px; /* Padding around the entire intro section */
     text-align: left;
-    margin-left: 100px; /* Adjust this to align with the overall layout */
-    margin-bottom: 600px; /* This pushes the entire intro section down */
+    margin-left: 400px; /* Adjust this to align with the overall layout */
+    margin-top: 400px; /* This pushes the entire intro section down */
 }
 
 #intro h1 {
-    color: #b3ffff;
-    font-family: 'Times New Roman', Times, serif;
-    font-size: 56px;
-    margin-bottom: 50px; /* Space between the heading and paragraph */
+    color:#CCD6F6;
+    font-family:Arial, Helvetica, sans-serif;
+    font-size: 80px;
+    margin-bottom: 20px; /* Space between the heading and paragraph */
     margin-left: 0; /* Align the left edge of h1 with the paragraph */
     text-align: left;
+}
+.greeting {
+    font-family:'Courier New', Courier, monospace;
+    font-size: 20px; /* Adjust as needed */
+    color: #55D8BD; /* Light grey text color, adjust as needed */
+    margin-bottom: 10px; /* Small space below the greeting */
+}
+.name {
+    font-size: 48px; /* Large, bold font size for the name */
+    font-weight: bold;
+    color: #575757; /* Adjust to the color you want for the name */
+    margin-bottom: 30px; /* Space below the name */
+}
+.tagline {
+    font-size: 75px; /* Adjust as needed */
+    color: #8892B0; /* Adjust to the color you want for the tagline */
+    margin-bottom: 20px; /* Space below the tagline */
+}
+.about {
+    font-size: 16px; /* Adjust as needed */
+    color: #aaaaaa; /* Grey text color, adjust as needed */
+    line-height: 1.6; /* For better readability */
+    max-width: 600px; /* Adjust width as needed to control line length */
+}
+.cta-button {
+    display: inline-block; /* Makes the link behave like a button */
+    background: transparent; /* Transparent background */
+    color: #55D8BD; /* Text color - choose a color that makes the text readable on your background */
+    padding: 10px 20px; /* Padding inside the button */
+    border: 2px solid #55D8BD; /* Border color - choose a color that stands out on your background */
+    text-decoration: none; /* Removes underline from the link */
+    font-weight: bold; /* Makes the font bold */
+    border-radius: 5px; /* Rounded corners for the button */
+    transition: background-color 0.3s, color 0.3s; /* Smooth transition for hover effects */
+    transition: transform 0.3s ease, box-shadow 0.3s ease
+}
+
+.cta-button:hover {
+    background: transparent; /* Background color on hover - choose a subtle color or keep it transparent */
+    color: #55D8BD; /* Text color on hover - choose a color that contrasts the hover background */
+    border-color: #55D8BD; /* Border color on hover - optional if you want to change the border color on hover */
+    transform: scale(1.02) translate(0, -5px);
+    box-shadow: 10px 10px 0px 0px #55D8BD;
+}
+#content {
+    display: flex;
+    align-items: flex-start; /* Align items at the top */
+    justify-content: center; /* Center the items horizontally */
+    gap: 20px; /* Space from the top */
+}
+#about-me {
+    flex-basis: 60%;
+    max-width: 500px; /* Adjust the width as needed */
+    font-family:Arial, Helvetica, sans-serif;
+    margin-left: 400px;
+    margin-top: 375px; /* Center the content and add space below the section */
+    padding: 50px 20px; /* Add padding for spacing inside the section */
+    color: #717C98; /* Text color */
+    text-align: left
+}
+.section-title {
+    font-family: 'HalifaxBold', Arial, sans-serif;
+    position: relative;
+    display: inline-block; /* To contain the size of the pseudo-element to the content */
+    margin-bottom: 20px; /* Space below the section title */
+    font-size: 36px; /* Size of the section title */
+    color: #CCD6F6; /* Color of the section title, adjust as needed */
+    /* Other styles... <div>Icons made from <a href="https://www.onlinewebfonts.com/icon">svg icons</a>is licensed by CC BY 4.0</div>*/
+}
+.section-title::after {
+    content: '';
+    position: absolute;
+    top: 50%; /* Align the line vertically */
+    left: calc(100% + 10px); /* Position the line after the text with some spacing */
+    width: 50px; /* Initial width of the line */
+    height: 0.5px; /* Make the line thinner */
+    background-color: #575757; /* Color of the line */
+    transition: width 0.3s ease-in-out; /* Smooth transition for the line */
+    transform: translateY(-50%); /* Center the line vertically relative to the title */
+}
+
+.section-title:hover::after {
+    width: 1000px; /* Optional: Increase the length of the line on hover */
+}
+
+.about-description {
+    font-size: 18px; /* Size of the about description text */
+    line-height: 1.6; /* Line height for better readability */
+    text-align: left; /* Align the text to the left */
+    margin-top: 20px; /* Space above the about description */
+}
+#image-frame {
+    width: 200px; /* Adjust to the size of your frame */
+    height: 300px; /* Adjust to the size of your frame */
+    border: 2px solid #55D8BD; /* The color used in 'Hi, my name is' */
+    margin-right: 20px; /* Spacing from the 'About Me' section */
+    padding: 10px;
+    box-sizing:border-box;
+    box-shadow: rgba(55, 168, 212, 0.5)
+    /* Add more styles as needed */
+}
+.frame-image {
+    width: 100%;
+    height: auto;
+    display: block; /* This will make sure images take up the whole frame */
+    cursor: pointer; /* Change cursor on hover to indicate interactivity */
+    transition: transform 0.3s ease; /* Smooth transition for hover effects */
+    transform: translateZ(0); /* Initial state for 3D transformation */
+     /* Shadow for depth effect */
+}
+
+#image-frame:hover {
+    transform: scale(1.03) translateZ(50px); /* Slightly enlarges the image and moves it towards the viewer */
 }
